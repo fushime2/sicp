@@ -1,0 +1,22 @@
+#lang sicp
+(define (sq x)
+  (* x x))
+(define (sum-of-square-large2 a b c)
+  (if (< a b)
+    (if (< c a)
+      (+ (sq a) (sq b))
+      (+ (sq c) (sq b)))
+    (if (< c b)
+      (+ (sq a) (sq b))
+      (+ (sq a) (sq c)))))
+
+;; test
+(eq? (sq 1) 1)
+(eq? (sq 2) 4)
+(eq? (sum-of-square-large2 1 1 1) 2)
+(eq? (sum-of-square-large2 1 2 3) 13)
+(eq? (sum-of-square-large2 1 3 2) 13)
+(eq? (sum-of-square-large2 2 1 3) 13)
+(eq? (sum-of-square-large2 2 3 1) 13)
+(eq? (sum-of-square-large2 3 1 2) 13)
+(eq? (sum-of-square-large2 3 2 1) 13)
